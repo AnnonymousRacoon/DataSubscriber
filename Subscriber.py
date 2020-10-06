@@ -199,50 +199,17 @@ class Subscriber(object):
         public method to handle notifications
         """
         pass
-
-class CustomSubscriber(Subscriber):
-    def __init__(self,data_stream,ID='Custom_Subscriber'):
-        super().__init__(data_stream,ID)
-        self.land_area = 0
-        self.price_per_capita = 0
-        self.units = '£'
-
-        # if data_stream.data is not empty
-        self.worth = 0
+    
     
 
 
-    def notification_manager(self, notification, sender='Unkown'):
-        super().notification_manager(notification, sender=sender)
-        if sender.ID == 'PRICE PER CAPITA':
-            self.price_per_capita = notification
-        elif sender.ID == 'LAND AREA':
-            self.land_area = notification
-        self.calculate_worth()
-    
-    def calculate_worth(self):
-        self.worth = int(self.price_per_capita) * float(self.land_area)
-        print('{} now valued at {}{}'.format(self.ID,self.units,self.worth))
 
 
 
 
-# # EXAMPLE
-# if __name__ == '__main__':
-   
-#     def print_something(*args):
-#         print('something')
 
-#     land_area = Data_Stream('LAND AREA')
-#     price_per_capita = Data_Stream('PRICE PER CAPITA')
-#     estate_worth = CustomSubscriber([price_per_capita,land_area],'ESTATE WORTH')
-#     estate_worth.manage_subscriptions([land_area],functions=[print_something])
-#     estate_worth.manage_subscriptions([land_area],'remove')
-#     estate_worth.manage_subscriptions([price_per_capita],functions=[print_something])
-#     estate_worth.manage_subscriptions(land_area)
-#     estate_worth.manage_subscriptions([price_per_capita],'remove_func',[print_something])
-#     price_per_capita.data = 9785
-#     land_area.data = 60000
+
+
  
 
 
